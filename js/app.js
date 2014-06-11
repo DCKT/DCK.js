@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
 	var userAgent = DCK.getUserAgent();
-	
-	DCK('#os').innerHTML = userAgent.os;
-	DCK('#browser').innerHTML = userAgent.browser;
-	DCK('#version').innerHTML = userAgent.version;
 
-	var getParametersButton = DCK('#checkURLParameters');
+	DCK('#os').html(userAgent.os);
+	DCK('#browser').html(userAgent.browser);
+	DCK('#version').html(userAgent.version);
+
+	var getParametersButton = DCK('#checkURLParameters')[0];
 
 	getParametersButton.onclick = function(e) {
 		e.preventDefault();

@@ -1,13 +1,52 @@
-var DCK = {};
-
 /*
  DOM Manipulation
 ****************************** */
-DCK = function (selector) {
-	var element = document.querySelectorAll(selector);
+(function () {
+  var DCK = function (params) {
+    return new Library(params);
+  };
+   
+  var Library = function (params) {
+    // Get params
+		var selector = document.querySelectorAll(params),
+		i            = 0;
 
-	return element.length == 1 ? element[0] : element;
-};
+		this.length  = selector.length;
+		this.version = '0.1.0';
+     
+    // Add selector to object for method chaining
+    for (; i < this.length; i++) {
+        this[i] = selector[i];
+    }
+     
+    // Return as object
+    return this;        
+  };
+
+  DCK.fn = Library.prototype = {
+  	hide: function() {
+  		var length = this.length;
+  		while (length--) {
+        this[length].style.display = 'none';
+      }
+
+      return this;
+  	},
+  	html: function(html) {
+  		var length = this.length;
+  		while (length--) {
+        this[length].innerHTML = html;
+      }
+
+      return this;
+  	}
+  }
+
+  // Assign our Q object to global window object.
+  if(!window.DCK) {
+      window.DCK = DCK;
+  }
+})();
 
 /*
  User Agent parsing
