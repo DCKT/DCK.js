@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 	var userAgent = DCK.getUserAgent();
+	
+	DCK('#os').innerHTML = userAgent.os;
+	DCK('#browser').innerHTML = userAgent.browser;
+	DCK('#version').innerHTML = userAgent.version;
 
-	document.getElementById('os').innerHTML = userAgent.os;
-	document.getElementById('browser').innerHTML = userAgent.browser;
-	document.getElementById('version').innerHTML = userAgent.version;
+	var getParametersButton = DCK('#checkURLParameters');
 
-	var getParametersButton = document.getElementById('checkURLParameters');
 	getParametersButton.onclick = function(e) {
 		e.preventDefault();
 		var inputValue = document.getElementById('url').value;
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			for(var obj in result) {
 				string += obj +" = "+ result[obj] + "<br />";
 			}
-			
+
 			document.getElementById('results').innerHTML = string;
 		}
 	};

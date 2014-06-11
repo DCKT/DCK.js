@@ -1,5 +1,17 @@
 var DCK = {};
 
+/*
+ DOM Manipulation
+****************************** */
+DCK = function (selector) {
+	var element = document.querySelectorAll(selector);
+
+	return element.length == 1 ? element[0] : element;
+};
+
+/*
+ User Agent parsing
+****************************** */
 DCK.getUserAgent = function() {
 	var OSList      = ['Windows', 'Macintosh'],
 	browserList     = ['Chrome', 'Firefox', 'Safari'],
@@ -30,6 +42,9 @@ DCK.getUserAgent = function() {
 	return parsedUserAgent;
 };
 
+/*
+ URL Parameter parsing
+****************************** */
 DCK.getURLParameters = function(url) {
 	if (url.indexOf("?") == -1) return false;
   var parameters   = url.slice(url.indexOf("?") + 1, url.length).split("&");
