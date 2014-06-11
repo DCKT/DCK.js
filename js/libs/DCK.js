@@ -31,6 +31,7 @@ DCK.getUserAgent = function() {
 };
 
 DCK.getURLParameters = function(url) {
+	if (url.indexOf("?") == -1) return false;
   var parameters   = url.slice(url.indexOf("?") + 1, url.length).split("&");
   var paramsObject = {};
   
@@ -38,8 +39,8 @@ DCK.getURLParameters = function(url) {
     var attribute = el.slice(0, el.indexOf("=")); 
     var value     = el.slice(el.indexOf("=") + 1, el.length);
 
-    if (parseInt(value)) {
-      value = parseInt(parameters[attribute]);
+    if (!isNaN(parseInt(value))) {
+      value = parseInt(value);
     }
 
     paramsObject[attribute] = value;        
