@@ -1,0 +1,1 @@
+console.log(DCK.getURLParameters('http://petit-bateau.fr?toto=lol&bonjour=monde'));
