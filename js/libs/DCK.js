@@ -66,15 +66,14 @@ DCK.getUserAgent = function() {
 		}
 	});
 
-	browserList.every(function(el) {
+	browserList.forEach(function(el) {
 		var indexElement = userAgent.indexOf(el),
 		found            = indexElement != -1,
 		endIndexElement  = indexElement + el.length;
 
-		if (found) {
+		if (found && parsedUserAgent.browser === undefined) {
 			parsedUserAgent.browser = el;
 			parsedUserAgent.version = userAgent.slice(endIndexElement + 1, endIndexElement + 5);
-			return false;
 		}
 	});
 
