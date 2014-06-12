@@ -1,4 +1,4 @@
 DCK.js
 ======
 
-My personnal function snippets !
+My personnal library !
