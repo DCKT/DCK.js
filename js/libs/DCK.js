@@ -7,7 +7,6 @@
   };
    
   var Library = function (params) {
-    // Get params
 		var selector = document.querySelectorAll(params),
 		i            = 0;
 
@@ -19,7 +18,7 @@
         this[i] = selector[i];
     }
      
-    // Return as object
+    // Return as object (like Jquery), we can access through all methods
     return this;        
   };
 
