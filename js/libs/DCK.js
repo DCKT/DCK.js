@@ -12,7 +12,6 @@
 		i            = 0;
 
 		this.length  = selector.length;
-		this.version = '0.1.0';
      
     // Add selector to object for method chaining
     for (; i < this.length; i++) {
@@ -32,6 +31,14 @@
 
       return this;
   	},
+    show = function () {
+      var length = this.length;
+      while (length--) {
+        this[length].style.display = 'block';
+      }
+
+      return this;
+    },
   	html: function(html) {
   		var length = this.length;
   		while (length--) {
