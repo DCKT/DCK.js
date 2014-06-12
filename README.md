@@ -11,7 +11,7 @@ You can select a DOM element like JQuery with the notation `DCK('#selector')`.
 This will return you the elements, the number of elements as well, and some extra methods :
 
 - .html(html)
-- .hide()
+- .hide() / .show()
 
 
 #### - URL parameters
