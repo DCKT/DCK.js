@@ -11,7 +11,6 @@
 		i            = 0;
 
 		this.length  = selector.length;
-		this.version = '0.1.0';
      
     // Add selector to object for method chaining
     for (; i < this.length; i++) {
@@ -31,6 +30,14 @@
 
       return this;
   	},
+    show = function () {
+      var length = this.length;
+      while (length--) {
+        this[length].style.display = 'block';
+      }
+
+      return this;
+    },
   	html: function(html) {
   		var length = this.length;
   		while (length--) {
@@ -65,15 +72,14 @@ DCK.getUserAgent = function() {
 		}
 	});
 
-	browserList.every(function(el) {
+	browserList.forEach(function(el) {
 		var indexElement = userAgent.indexOf(el),
 		found            = indexElement != -1,
 		endIndexElement  = indexElement + el.length;
 
-		if (found) {
+		if (found && parsedUserAgent.browser === undefined) {
 			parsedUserAgent.browser = el;
 			parsedUserAgent.version = userAgent.slice(endIndexElement + 1, endIndexElement + 5);
-			return false;
 		}
 	});
 
