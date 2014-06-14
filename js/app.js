@@ -22,4 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			document.getElementById('results').innerHTML = string;
 		}
 	};
+
+	DCK.xhr({
+		method: 'GET',
+		url: 'http://localhost:8888/api/news',
+		success: function(res) {
+			console.log(res);
+		},
+		error: function(res) {
+			alert('error');
+		}
+	});
 }, true);

@@ -30,7 +30,7 @@
 
       return this;
   	},
-    show = function () {
+    show: function () {
       var length = this.length;
       while (length--) {
         this[length].style.display = 'block';
@@ -112,4 +112,39 @@ DCK.getURLParameter = function(url) {
 	var parameters = DCK.getURLParameters(url);
 
   return parameters[attribute];
+};
+
+/*
+XHR
+****************************** */
+DCK.xhr = function (parameters) {
+  var xhr = new XMLHttpRequest(),
+  data    = null;
+ 
+  if (parameters.headers) {
+    for (var obj in parameters.headers) {
+      xhr.setRequestHeader(obj, parameters.headers[obj]);
+    }
+  }
+ 
+  if (parameters.data) {
+    for (var obj in parameters.data) {
+      data += data === null ? '' : '&';
+      data += obj +"="+ parameters.data[obj];
+    }
+  }
+ 
+  xhr.open(parameters.method, parameters.url, true);
+  xhr.onreadystatechange = function(e) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        parameters.success(xhr);
+      }
+      else {
+        parameters.error(xhr);
+      }
+    }
+  };
+ 
+  xhr.send(data);
 };
