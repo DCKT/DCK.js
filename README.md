@@ -28,6 +28,8 @@ DCK.getURLParameter('http://petit-bateau.fr/?color=blue', 'color'); // Return 'b
 ````
 
 #### - User Agent
-`DCK.getUserAgent()` return an object with the current Operating System, the browser used with the version of him.
-
+Return an object with the current Operating System, the browser used with him version.
+````
+DCK.getUserAgent(); // { os: 'Macintosh', browser: 'Chrome', version: '35.0' }
+````
 
