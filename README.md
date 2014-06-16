@@ -33,3 +33,41 @@ Return an object with the current Operating System, the browser used with him ve
 DCK.getUserAgent(); // { os: 'Macintosh', browser: 'Chrome', version: '35.0' }
 ````
 
+#### - XMLHttpRequest
+Create a XMLHttpRequest often takes a lot of line, I created a method like JQuery ($.ajax).
+You can pass in argument :
+- URL
+- Method
+- Data
+- Success callback
+- Error callback
+- Headers
+
+Actualy it doesn't support FormData, but it will soon :smile:
+I send the xhr object on the success/error callback, this offer better maintainability.
+
+````
+DCK.xhr({
+  url: 'http://my-hot-api.com/cats',
+  method: 'GET',
+  success: function(res) {
+    console.log(res.responseText);
+  },
+  error: function(res) {
+    console.error('Something went wrong : '+ res.responseText);
+  }
+}); 
+````
+
+You can even use the shortcut for **GET** or **POST** methods, you just need to pass the URL and callback.
+````
+DCK.get({
+  url: 'http://my-hot-api.com/cats',
+  success: function(res) {
+    console.log(res.responseText);
+  },
+  error: function(res) {
+    console.error('Something went wrong : '+ res.responseText);
+  }
+}); 
+````
