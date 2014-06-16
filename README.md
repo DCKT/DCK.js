@@ -15,8 +15,17 @@ This will return you the elements, the number of elements as well, and some extr
 
 
 #### - URL parameters
-`DCK.getURLParameters(url)` retrieve the GET parameters in the URL passed in parameters. This method return an object.
-`DCK.getURLParameter(url, parameter)` retrieve the value of the parameter passed in argument.
+Retrieve the GET parameters in the URL passed in parameters.
+````
+DCK.getURLParameters('http://petit-bateau.fr/?id=12&size=43'); // Return { id: 12, size: 43 }
+DCK.getURLParameters('http://petit-bateau.fr?color=blue); // Return { color: 'blue' }
+````
+
+Retrieve the value of the parameter passed in argument.
+````
+DCK.getURLParameter('http://petit-bateau.fr/?id=12&size=43', 'id'); // Return 12
+DCK.getURLParameter('http://petit-bateau.fr/?color=blue', 'color'); // Return 'blue'
+````
 
 #### - User Agent
 `DCK.getUserAgent()` return an object with the current Operating System, the browser used with the version of him.
